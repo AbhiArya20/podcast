@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Local env files
+.env
+.env.*
+!.env.production # Allow production environment file if needed
+
+# Turborepo cache
+.turbo/
+
+# Vercel deployment output
+.vercel/
+
+# Build outputs
+out/
+dist/
+build/
+.next/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+
+# SSH keys or sensitive files
+*.pem
+
+# Editor and IDE config files
+.vscode/
+.idea/
+*.sublime-workspace
+*.code-workspace
