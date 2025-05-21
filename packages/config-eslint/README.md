@@ -1,3 +1,3 @@
-# `@turbo/eslint-config`
+# `@podcast/eslint-config`
 
 Collection of internal eslint configurations.

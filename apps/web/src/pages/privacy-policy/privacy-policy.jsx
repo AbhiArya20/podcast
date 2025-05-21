@@ -1,5 +1,5 @@
 import React from 'react'
-import PageError from '@/components/shared/page-error/page-error'
+import PageError from '@/components/page-error/page-error'
 
 export default function PrivacyPolicy() {
   return (

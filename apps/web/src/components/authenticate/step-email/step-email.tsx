@@ -1,9 +1,9 @@
-import FormLeft from "@/shared/form-left/form-left";
-import FormRight from "@/shared/form-right/form-right";
-import FormWrapper from "@/shared/form-wrapper/form-wrapper";
+import FormLeft from "@/components/form-left/form-left";
+import FormRight from "@/components/form-right/form-right";
+import FormWrapper from "@/components/form-wrapper/form-wrapper";
 import { Link } from "react-router-dom";
 import React from "react";
-import useEmailStep from "@/hooks/auth-hooks/useEmailStep";
+import useEmailStep from "@/hooks/auth-hooks/use-email-step";
 
 type StepEmailProps = {
 	onNext: () => void;

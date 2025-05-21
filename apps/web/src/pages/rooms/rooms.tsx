@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 import AddRoomModal from "@/components/add-room-modal/add-room-modal";
-import Navbar from "@/components/shared/navbar/navbar";
+import Navbar from "@/components/navbar/navbar";
 import RoomCard from "@/components/room-card/room-card";
 import { getAllRooms } from "@/http";
-import styles from "@/rooms.module.css";
+import styles from "./rooms.module.css";
 
 const Rooms = () => {
   const [showModal, setShowModal] = useState(false);

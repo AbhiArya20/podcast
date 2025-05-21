@@ -1,5 +1,5 @@
-import UserDto from "../dtos/user-dto";
-import userService from "../services/user-service";
+import UserDto from "@/dtos/user-dto";
+import userService from "@/services/user-service";
 
 class ActivateController {
 	async activate(req, res) {

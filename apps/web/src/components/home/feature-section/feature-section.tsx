@@ -2,14 +2,14 @@ import "swiper/css";
 import "swiper/css/bundle";
 
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import FeatureCard, { SingleFeatureCard } from "@/feature-card";
+import FeatureCard, { SingleFeatureCard } from "@/components/home/feature-section/feature-card";
 import { Navigation, Pagination } from "swiper/modules";
 import { ReactNode, useContext, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { FeatureSectionContext } from "@/context/feature-section";
 import { FreeMode } from "swiper/modules";
-import styles from "@/feature-section.module.css";
+import styles from "./feature-section.module.css";
 
 type AllDetailsType = {
 	title: string;

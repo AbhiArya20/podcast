@@ -1,4 +1,4 @@
-import RefreshModel from "../models/refresh-model";
+import RefreshModel from "@/models/refresh-model";
 import jwt from "jsonwebtoken";
 const accessTokenSecret = process.env.JWT_ACCESS_TOKEN_SECRET;
 const refreshTokenSecret = process.env.JWT_REFRESH_TOKEN_SECRET;

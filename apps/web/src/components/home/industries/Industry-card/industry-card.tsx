@@ -1,7 +1,7 @@
-import Button from "@/shared/button/button";
+import Button from "@/components/button/button";
 import { FaArrowRight } from "react-icons/fa6";
 import { ReactNode } from "react";
-import styles from "@/industry-card.module.css";
+import styles from "./industry-card.module.css";
 import { useNavigate } from "react-router-dom";
 
 type IndustryCardType = {

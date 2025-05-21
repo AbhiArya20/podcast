@@ -5,7 +5,7 @@ import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } f
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FaVideo } from "react-icons/fa";
 import { IoRecording } from "react-icons/io5";
-import styles from "@/platform-section.module.css";
+import styles from "./platform-section.module.css";
 import { useInView } from "react-intersection-observer";
 
 const Platform = () => {

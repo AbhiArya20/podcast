@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/room-card.module.css";
+import styles from "./room-card.module.css";
 import { useNavigate } from "react-router-dom";
 import { FaVideo } from "react-icons/fa";
 

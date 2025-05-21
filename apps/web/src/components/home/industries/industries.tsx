@@ -9,9 +9,9 @@ import { FaCity } from "react-icons/fa6";
 import { FaHospital } from "react-icons/fa";
 import { FaSchool } from "react-icons/fa6";
 import { GiShop } from "react-icons/gi";
-import IndustryCard from "@/Industry-card/industry-card";
+import IndustryCard from "@/components/home/industries/Industry-card/industry-card";
 import { RiGovernmentFill } from "react-icons/ri";
-import styles from "@/industries.module.css";
+import styles from "./industries.module.css";
 
 const industries = [
 	{

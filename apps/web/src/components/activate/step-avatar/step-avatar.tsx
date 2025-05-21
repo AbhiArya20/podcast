@@ -1,12 +1,12 @@
-import Avatar from "@/shared/avatar/avatar";
-import Button from "@/shared/button/button";
+import Avatar from "@/components/avatar/avatar";
+import Button from "@/components/button/button";
 import { FaUpload } from "react-icons/fa6";
-import FormError from "@/shared/form-error/form-error";
-import FormLeft from "@/shared/form-left/form-left";
-import FormWrapper from "@/shared/form-wrapper/form-wrapper";
-import PageLoader from "@/shared/page-loader/page-loader";
-import styles from "@/step-avatar.module.css";
-import useAvatarStep from "@/hooks/auth-hooks/useAvatarStep";
+import FormError from "@/components/form-error/form-error";
+import FormLeft from "@/components/form-left/form-left";
+import FormWrapper from "@/components/form-wrapper/form-wrapper";
+import PageLoader from "@/components/page-loader/page-loader";
+import styles from "./step-avatar.module.css";
+import useAvatarStep from "@/hooks/auth-hooks/use-avatar-step";
 const StepAvatar = () => {
 	// TODO: Goggle images does not works properly when authenticate using images
 	const { image, captureImage, error, isLoading, update, randomAvatars, setImage, setAvatarFile } = useAvatarStep();

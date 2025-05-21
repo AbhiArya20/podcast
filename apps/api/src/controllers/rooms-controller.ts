@@ -1,5 +1,5 @@
-import RoomDto from "../dtos/room.dto";
-import roomService from "../services/room-service";
+import RoomDto from "@/dtos/room.dto";
+import roomService from "@/services/room-service";
 
 class RoomsController {
   async create(req, res) {

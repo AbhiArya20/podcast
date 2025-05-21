@@ -1,6 +1,6 @@
 "use client";
 import FeatureCard, { SingleFeatureCard } from "@/feature-card";
-import styles from "@/feature-section.module.css";
+import styles from "./feature-section.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";

@@ -1,7 +1,7 @@
 import fileExtension from "file-extension";
 import multer from "multer";
 import multerS3 from "multer-s3";
-import s3Client from "../aws_config";
+import s3Client from "@/aws_config";
 import { v4 as uuidv4 } from "uuid";
 
 const allowedImage = ["image/png", "image/jpeg"];

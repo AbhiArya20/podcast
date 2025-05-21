@@ -5,12 +5,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useRef } from "react";
 
 import { EffectCreative } from "swiper/modules";
-import PaginationDots from "@/shared/pagination-dots/pagination-dots";
+import PaginationDots from "@/components/pagination-dots/pagination-dots";
 import { Swiper as SwiperType } from "swiper/types";
 import { changeHeroSectionIndex } from "@/store/hero-section-slice";
-import { chips } from "@/data/chips";
-import styles from "@/hero-card-right.module.css";
-import useRedux from "@/hooks/useRedux";
+import { chips } from "@/components/home/hero-section/data/chips";
+import styles from "./hero-card-right.module.css";
+import useRedux from "@/hooks/use-redux";
 
 const HeroCardRight = () => {
 	const swiperRef = useRef<SwiperType | null>(null);
@@ -47,13 +47,13 @@ const HeroCardRight = () => {
 				initialSlide={0}
 				enabled={true}>
 				<SwiperSlide className={styles.heroSectionRightSwipperSlide}>
-					<img src='/assets/Events.avif' alt={"Video"} className={styles.featureCardImg} />
+					<img src='/assets/events.avif' alt={"Video"} className={styles.featureCardImg} />
 				</SwiperSlide>
 				<SwiperSlide className={styles.heroSectionRightSwipperSlide}>
-					<img src='/assets/Messaging.avif' alt={"Chat"} className={styles.featureCardImg} />
+					<img src='/assets/messaging.avif' alt={"Chat"} className={styles.featureCardImg} />
 				</SwiperSlide>
 				<SwiperSlide className={styles.heroSectionRightSwipperSlide}>
-					<img src='/assets/Meetings.avif' alt={"Whiteboard"} className={styles.featureCardImg} />
+					<img src='/assets/meetings.avif' alt={"Whiteboard"} className={styles.featureCardImg} />
 				</SwiperSlide>
 			</Swiper>
 			<div className={styles.customPaginationWrapper}>

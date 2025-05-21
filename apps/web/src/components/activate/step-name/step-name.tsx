@@ -1,10 +1,10 @@
 import { FC, KeyboardEventHandler, useState } from "react";
 
-import FormLeft from "@/shared/form-left/form-left";
-import FormRight from "@/shared/form-right/form-right";
-import FormWrapper from "@/shared/form-wrapper/form-wrapper";
+import FormLeft from "@/components/form-left/form-left";
+import FormRight from "@/components/form-right/form-right";
+import FormWrapper from "@/components/form-wrapper/form-wrapper";
 import { setName } from "@/store/activate-slice";
-import useRedux from "@/hooks/useRedux";
+import useRedux from "@/hooks/use-redux";
 
 type StepNameProps = {
 	onNext: () => void;

@@ -1,8 +1,8 @@
-import Chip from "@/shared/chip/chip";
+import Chip from "@/components/chip/chip";
 import { changeHeroSectionIndex } from "@/store/hero-section-slice";
-import { chips } from "@/data/chips";
-import styles from "@/hero-message.module.css";
-import useRedux from "@/hooks/useRedux";
+import { chips } from "@/components/home/hero-section/data/chips";
+import styles from "./hero-message.module.css";
+import useRedux from "@/hooks/use-redux";
 
 const HeroMessage = () => {
 	const { useTypedDispatch, useTypedSelector } = useRedux();

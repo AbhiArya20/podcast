@@ -1,5 +1,5 @@
 import passport from "passport";
-import userService from "../services/user-service";
+import userService from "@/services/user-service";
 
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 

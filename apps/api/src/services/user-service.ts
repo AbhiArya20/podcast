@@ -1,4 +1,4 @@
-import UserModel from "../models/user-model";
+import UserModel from "@/models/user-model";
 class UserService {
   async findUser(filter) {
     const user = await UserModel.findOne(filter);

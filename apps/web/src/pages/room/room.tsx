@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useWebRTC } from "@/hooks/useWebRTC";
+import { useWebRTC } from "@/hooks/use-web-rtc";
 import { useParams, useNavigate } from "react-router-dom";
 import { getRoom } from "@/http";
-import styles from "@/room.module.css";
+import styles from "./room.module.css";
 
 const Room = () => {
   const user = useSelector((state) => state.auth.user);

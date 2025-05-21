@@ -1,4 +1,4 @@
-import tokenService from "../services/token-service";
+import tokenService from "@/services/token-service";
 
 export default async function (req, res, next) {
   try {

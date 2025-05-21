@@ -1,7 +1,7 @@
 "use client";
-import styles from "@/feature-card.module.css";
+import styles from "./feature-card.module.css";
 import { FaArrowRight } from "react-icons/fa";
-import SwiperNavigation from "@/swiper-navigation/swiper-navigation";
+import SwiperNavigation from "@/home/components/swiper-navigation/swiper-navigation";
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCreative } from "swiper/modules";

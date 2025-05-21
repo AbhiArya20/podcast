@@ -1,7 +1,7 @@
-import activate from "@/activate-slice";
-import auth from "@/auth-slice";
+import activate from "@/store/activate-slice";
+import auth from "@/store/auth-slice";
 import { configureStore } from "@reduxjs/toolkit";
-import heroSection from "@/hero-section-slice";
+import heroSection from "@/store/hero-section-slice";
 
 export const store = configureStore({
   reducer: {

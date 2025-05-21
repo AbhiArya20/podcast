@@ -1,7 +1,7 @@
-import Description from "@/shared/description/description";
-import HeroButton from "@/hero-button/hero-button";
-import HeroMessage from "@/hero-message/hero-message";
-import styles from "@/hero-card-left.module.css";
+import Description from "@/components/description/description";
+import HeroButton from "@/components/home/hero-section/hero-button/hero-button";
+import HeroMessage from "@/components/home/hero-section/hero-message/hero-message";
+import styles from "./hero-card-left.module.css";
 
 const HeroCardLeft = () => {
 	return (

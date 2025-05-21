@@ -5,10 +5,10 @@ import { Autoplay, EffectCreative } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { forwardRef, useImperativeHandle, useRef } from "react";
 
-import Button from "@/shared/button/button";
+import Button from "@/components/button/button";
 import { FaArrowRight } from "react-icons/fa";
-import PaginationDots from "@/shared/pagination-dots/pagination-dots";
-import styles from "@/feature-card.module.css";
+import PaginationDots from "@/components/pagination-dots/pagination-dots";
+import styles from "./feature-card.module.css";
 import { useNavigate } from "react-router-dom";
 
 const allDetails = [

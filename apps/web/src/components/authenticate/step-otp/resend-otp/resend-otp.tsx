@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import { BeatLoader } from "react-spinners";
-import styles from "@/resend-otp.module.css";
-import useResendOTP from "@/hooks/auth-hooks/useResendOTP";
+import styles from "./resend-otp.module.css";
+import useResendOTP from "@/hooks/auth-hooks/use-resend-otp";
 
 const ResendOtp = () => {
 	const [timer, setTimer] = useState(30);

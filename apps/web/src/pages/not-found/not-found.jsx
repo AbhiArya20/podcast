@@ -1,5 +1,5 @@
 import { TbError404 } from "react-icons/tb";
-import PageError from "@/components/shared/page-error/page-error";
+import PageError from "@/components/page-error/page-error";
 
 const NotFound = () => {
 	return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styles from "@/add-room-modal.module.css";
-import TextInput from "@/shared/text-input/text-input";
+import styles from "./add-room-modal.module.css";
+import TextInput from "@/components/text-input/text-input";
 import { createRoom as create } from "@/http";
 import { useNavigate } from "react-router-dom";
 const AddRoomModal = ({ onClose }) => {

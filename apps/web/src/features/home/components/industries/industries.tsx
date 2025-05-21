@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import styles from "@/industries.module.css";
+import styles from "./industries.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaSchool } from "react-icons/fa6";
 import { GiShop } from "react-icons/gi";

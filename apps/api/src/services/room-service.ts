@@ -1,4 +1,4 @@
-import RoomModel from "../models/room-model";
+import RoomModel from "@/models/room-model";
 class RoomService {
   async create(payload) {
     const { topic, roomType, owner } = payload;

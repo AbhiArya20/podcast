@@ -1,5 +1,5 @@
 import passport from "passport";
-import userService from "../services/user-service";
+import userService from "@/services/user-service";
 import { Strategy as FacebookStrategy } from "passport-facebook";
 
 

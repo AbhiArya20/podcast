@@ -1,4 +1,4 @@
-import styles from "@/swiper-navigation.module.css";
+import styles from "./swiper-navigation.module.css";
 
 const SwiperNavigation = ({ count = 3, activeIndex, onClick }) => {
 	return (

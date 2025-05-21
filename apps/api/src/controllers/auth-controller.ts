@@ -1,8 +1,8 @@
-import UserDto from "../dtos/user-dto";
-import hashService from "../services/hash-service";
-import otpService from "../services/otp-service";
-import tokenService from "../services/token-service";
-import userService from "../services/user-service";
+import UserDto from "@/dtos/user-dto";
+import hashService from "@/services/hash-service";
+import otpService from "@/services/otp-service";
+import tokenService from "@/services/token-service";
+import userService from "@/services/user-service";
 
 class AuthController {
   async sendOtp(req, res) {

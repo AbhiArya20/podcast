@@ -1,9 +1,9 @@
-import FormLeft from "@/shared/form-left/form-left";
-import FormRight from "@/shared/form-right/form-right";
-import FormWrapper from "@/shared/form-wrapper/form-wrapper";
-import ResendOtp from "@/resend-otp/resend-otp";
-import useOTPStep from "@/hooks/auth-hooks/useOTPStep";
-import useRedux from "@/hooks/useRedux";
+import FormLeft from "@/components/form-left/form-left";
+import FormRight from "@/components/form-right/form-right";
+import FormWrapper from "@/components/form-wrapper/form-wrapper";
+import useOTPStep from "@/hooks/auth-hooks/use-otp-Step";
+import useRedux from "@/hooks/use-redux";
+import ResendOtp from "@/components/authenticate/step-otp/resend-otp/resend-otp";
 
 const StepOTP = () => {
 	const { useTypedSelector } = useRedux();

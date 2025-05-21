@@ -1,4 +1,4 @@
-import Button from "@/shared/button/button";
+import Button from "@/components/button/button";
 import { FaArrowRight } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
