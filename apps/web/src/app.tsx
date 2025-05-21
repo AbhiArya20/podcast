@@ -1,29 +1,28 @@
-import "@/styles.css";
-
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {
-  GuestRoute,
-  ProtectedRoute,
-  SemiProtectedRoute,
-} from "@/routes-wrappers";
-import Activate from "@/pages/activate/activate";
-import Authenticate from "@/pages/authenticate/authenticate";
+import { Route, Routes } from "react-router-dom";
+import { MdOutlineSignalWifiStatusbarConnectedNoInternet4 } from "react-icons/md";
 import { BiSolidError } from "react-icons/bi";
 import { HiRefresh } from "react-icons/hi";
+import Activate from "@/pages/activate/activate";
+import Authenticate from "@/pages/authenticate/authenticate";
 import Home from "@/pages/home/home";
-import { MdOutlineSignalWifiStatusbarConnectedNoInternet4 } from "react-icons/md";
 import PageError from "@/components/page-error/page-error";
 import PageLoader from "@/components/page-loader/page-loader";
 import Room from "@/pages/room/room";
 import Rooms from "@/pages/rooms/rooms";
 import { useLoadingWithRefresh } from "@/hooks/use-loading-with-refresh";
 import PrivacyPolicy from "@/components/privacy-policy/privacy-policy";
+import {
+  GuestRoute,
+  ProtectedRoute,
+  SemiProtectedRoute,
+} from "@/routes-wrappers";
+import "@/styles.css";
 
 function App() {
-  const { loading, error } = useLoadingWithRefresh();
+  const { isLoading, error } = useLoadingWithRefresh();
 
-  if (loading)
-    return <PageLoader isLoading={loading} message="Loading, please wait..." />;
+  if (isLoading)
+    return <PageLoader isLoading={isLoading} message="Loading, please wait..." />;
 
   if (error)
     return (

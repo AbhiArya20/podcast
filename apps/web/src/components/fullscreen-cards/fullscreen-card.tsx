@@ -1,7 +1,6 @@
-import React, { FC } from "react";
-
+import React from "react";
 import LargeCard from "@/components/large-card/large-card";
-import Navbar from "@/components/navbar/navbar";
+import { SimpleNavbar } from "@/components/navbar/navbar";
 import styles from "./fullscreen-card.module.css";
 
 type FullScreenCardProps = {
@@ -14,14 +13,12 @@ type FullScreenCardProps = {
 
 export default function FullScreenCard({
   isLoading,
-  withNavbar = true,
   withLogo = true,
-  withLoginButton = false,
   children,
 }: FullScreenCardProps) {
   return (
     <div className={styles.fullScreenWrapper}>
-      {withNavbar && <Navbar withLoginButton={withLoginButton} />}
+      <SimpleNavbar />
       <div className={styles.screenWrapper}>
         <LargeCard isLoading={isLoading} withLogo={withLogo}>
           {children}

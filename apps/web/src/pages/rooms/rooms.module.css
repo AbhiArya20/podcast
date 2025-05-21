@@ -46,7 +46,7 @@
   left: 0;
   width: 60%;
   height: 4px;
-  background: var(--primary-color-dark);
+  background: var(--primary);
 }
 
 .startRoomButton {

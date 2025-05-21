@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background: var(--secondary-background-color-dark);
+	background: var(--secondary-background);
 	position: relative;
 	margin-top: 4rem;
 }
@@ -18,7 +18,7 @@
 .plateformHeadingWrapper {
 	position: sticky;
 	top: -1.75rem;
-	background: var(--secondary-background-color-dark);
+	background: var(--secondary-background);
 	z-index: 99;
 	width: 100%;
 }

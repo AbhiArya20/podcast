@@ -6,7 +6,7 @@ import { setAuth } from "@/store/auth-slice";
 import useRedux from "@/hooks/use-redux";
 
 export function useLoadingWithRefresh() {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<CustomError | null>(null);
   const { useTypedDispatch } = useRedux();
   const dispatch = useTypedDispatch();
@@ -14,7 +14,7 @@ export function useLoadingWithRefresh() {
   useEffect(() => {
     (async () => {
       try {
-        setLoading(true);
+        setIsLoading(true);
         await new Promise((resolve) => setTimeout(resolve, 500000));
         const { data } = await axios.get(
           `${import.meta.env.VITE_API_URL}/api/refresh`,
@@ -48,11 +48,11 @@ export function useLoadingWithRefresh() {
           }
         }
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { loading, error };
+  return { isLoading, error };
 }

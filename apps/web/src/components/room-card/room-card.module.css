@@ -1,5 +1,5 @@
 .card {
-  background: var(--secondary-background-color-dark);
+  background: var(--secondary-background);
   padding: 15px;
   border-radius: 10px;
   cursor: pointer;
@@ -64,7 +64,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: var(--secondary-background-color-dark);
+  background: var(--secondary-background);
 }
 
 .avatars img:last-child {

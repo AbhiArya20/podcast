@@ -1,9 +1,9 @@
 :root {
-  --primary-color-dark: #0077ff;
-  --primary-hover-color-dark: #015fca;
-  --background-color-dark: #121212;
-  --secondary-background-color-dark: #1d1d1d;
-  --text-color-dark: #fff;
+  --primary: #0077ff;
+  --secondary-primary: #015fca;
+  --background: #121212;
+  --secondary-background: #1d1d1d;
+  --text: #fff;
 }
 
 html {
@@ -64,7 +64,7 @@ button {
 }
 
 body {
-  background: var(--background-color-dark);
+  background: var(--background);
   font-family: "Nunito", sans-serif;
   color: #fff;
 }

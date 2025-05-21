@@ -5,8 +5,8 @@
 	height: 2.5rem;
 	width: 100%;
 	padding: 0.625rem 1.25rem;
-	color: var(--text-color-dark);
-	background: var(--primary-color-dark);
+	color: var(--text);
+	background: var(--primary);
 	font-size: 1rem;
 	border-radius: 3rem;
 	transition: background-color 0.3s ease-in-out;
@@ -15,7 +15,7 @@
 }
 
 .button:hover {
-	background-color: var(--primary-hover-color-dark);
+	background-color: var(--secondary-primary);
 }
 
 .loaderWrapper {

@@ -24,7 +24,11 @@
         "apps/web/index.html": true,
         "apps/web/eslint.config.js": true,
         "apps/web/.env": true,
-        "apps/web/src/main.tsx": true
+        "apps/web/src/main.tsx": true,
+        "apps/web/src/components/logo": true,
+        "apps/web/src/components/large-card": true,
+        "apps/web/src/components/fullscreen-cards": true,
+        "apps/web/src/components/page-loader": true
     },
     "hide-files.files": [
         "turbo.json",
@@ -46,6 +50,10 @@
         "apps/web/index.html",
         "apps/web/eslint.config.js",
         "apps/web/.env",
-        "apps/web/src/main.tsx"
+        "apps/web/src/main.tsx",
+        "apps/web/src/components/logo",
+        "apps/web/src/components/large-card",
+        "apps/web/src/components/fullscreen-cards",
+        "apps/web/src/components/page-loader"
     ]
 }

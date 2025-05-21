@@ -13,7 +13,7 @@
 .modalBody {
   width: 50%;
   max-width: 500px;
-  background: var(--secondary-background-color-dark);
+  background: var(--secondary-background);
   border-radius: 20px;
   position: relative;
 }

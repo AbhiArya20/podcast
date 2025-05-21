@@ -1,7 +1,7 @@
 .industriesSection {
 	display: flex;
 	flex-direction: column;
-	background: var(--secondary-background-color-dark);
+	background: var(--secondary-background);
 	padding: 0 0 4rem 0;
 }
 

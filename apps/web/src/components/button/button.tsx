@@ -11,7 +11,7 @@ type ButtonProps = {
 	loaderColor?: string;
 };
 
-const Button: FC<ButtonProps> = ({ children, onClick, isLoading = false, className = "", loaderColor = "var(--text-color-dark)" }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, isLoading = false, className = "", loaderColor = "var(--text)" }) => {
 	return (
 		<button
 			onClick={(e) => {

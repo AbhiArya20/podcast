@@ -9,7 +9,7 @@
 .avatarImage {
 	border-radius: 50%;
 	object-fit: cover;
-	border: 3px solid var(--primary-color-dark);
+	border: 3px solid var(--primary);
 	cursor: pointer;
 	height: 3rem;
 	width: 3rem;

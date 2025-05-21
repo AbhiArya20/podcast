@@ -45,12 +45,12 @@
   left: 0;
   width: 60%;
   height: 4px;
-  background: var(--primary-color-dark);
+  background: var(--primary);
   border-radius: 10px;
 }
 
 .clientsWrap {
-  background: var(--secondary-background-color-dark);
+  background: var(--secondary-background);
   margin-top: 4rem;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;

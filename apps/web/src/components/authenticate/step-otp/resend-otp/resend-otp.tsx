@@ -24,7 +24,7 @@ const ResendOtp = () => {
 	return (
 		<div className={styles.resetClockWrapper}>
 			{isLoading ?
-				<BeatLoader color='var(--primary-color-dark)' />
+				<BeatLoader color='var(--primary)' />
 			: timer ?
 				<p>{`Resend OTP in ${timer}s`}</p>
 			:	<p className={styles.resetBtn} onClick={update}>

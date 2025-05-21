@@ -1,7 +1,7 @@
 .resetClockWrapper {
 	display: flex;
 	justify-content: flex-end;
-	color: var(--primary-color-dark);
+	color: var(--primary);
 	cursor: pointer;
 	margin-right: 2rem;
 	height: 100%;

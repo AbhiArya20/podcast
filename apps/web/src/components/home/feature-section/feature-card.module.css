@@ -9,7 +9,7 @@
 
 .featureCard {
 	width: 100%;
-	background: var(--secondary-background-color-dark);
+	background: var(--secondary-background);
 	display: grid;
 	grid-template-rows: repeat(6, 1fr);
 	grid-template-columns: repeat(12, 1fr);
@@ -262,9 +262,9 @@
 	}
 
 	.oneTab {
-		color: var(--primary-color-dark);
+		color: var(--primary);
 		width: 100%;
-		border-bottom: 2px solid var(--primary-color-dark);
+		border-bottom: 2px solid var(--primary);
 		font-size: 1rem;
 	}
 

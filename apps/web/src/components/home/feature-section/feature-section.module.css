@@ -3,7 +3,7 @@
 	align-items: center;
 	flex-direction: column;
 	width: 100%;
-	background: var(--background-color-dark);
+	background: var(--background);
 }
 
 .hybridTabWrapper {
@@ -34,7 +34,7 @@
 
 .customButtonPrev,
 .customButtonNext {
-	color: var(--primary-color-dark);
+	color: var(--primary);
 	cursor: pointer;
 	position: absolute;
 	top: 25%;
@@ -67,7 +67,7 @@
 	top: 50%;
 	transform: translate(0%, -50%);
 	height: 100%;
-	background-color: var(--primary-color-dark);
+	background-color: var(--primary);
 	border-radius: 3rem;
 	z-index: -10;
 	width: 100%;
@@ -111,7 +111,7 @@
 	left: 0;
 	height: 0.3rem;
 	border-radius: 0.25rem;
-	background-color: var(--primary-color-dark);
+	background-color: var(--primary);
 	transition: all 0.5s ease;
 }
 
@@ -169,9 +169,9 @@
 	}
 
 	.oneTab {
-		color: var(--primary-color-dark);
+		color: var(--primary);
 		width: 100%;
-		border-bottom: 2px solid var(--primary-color-dark);
+		border-bottom: 2px solid var(--primary);
 		font-size: 1.25rem;
 	}
 
