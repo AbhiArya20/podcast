@@ -27,13 +27,15 @@ class AuthController {
         hash: `${hash}.${expires}`,
         email,
         message: "OTP Sent Successfully!",
-        description: "We've sent an OTP to your email. Please check your inbox.",
+        description:
+          "We've sent an OTP to your email. Please check your inbox.",
       });
     } catch (err) {
       console.log(err);
       res.status(500).json({
         message: "Failed to Send OTP.",
-        description: "An error occurred while sending the OTP. Please try again later.",
+        description:
+          "An error occurred while sending the OTP. Please try again later.",
       });
     }
   }
@@ -43,7 +45,8 @@ class AuthController {
     if (!otp || !hash || !email) {
       return res.status(400).json({
         message: "Incomplete Information.",
-        description: "All fields (OTP, hash, and email) are required for verification.",
+        description:
+          "All fields (OTP, hash, and email) are required for verification.",
       });
     }
 
@@ -51,7 +54,8 @@ class AuthController {
     if (Date.now() > +expires) {
       return res.status(400).json({
         message: "OTP Has Expired.",
-        description: "The OTP you entered is no longer valid. Please request a new one.",
+        description:
+          "The OTP you entered is no longer valid. Please request a new one.",
       });
     }
 
@@ -60,7 +64,8 @@ class AuthController {
     if (!isValid) {
       return res.status(400).json({
         message: "Invalid OTP.",
-        description: "The OTP you entered is incorrect. Please check and try again.",
+        description:
+          "The OTP you entered is incorrect. Please check and try again.",
       });
     }
 
@@ -74,7 +79,8 @@ class AuthController {
       console.log(err);
       return res.status(500).json({
         message: "User Processing Error.",
-        description: "There was an error processing your user information. Please try again.",
+        description:
+          "There was an error processing your user information. Please try again.",
       });
     }
 
@@ -89,7 +95,8 @@ class AuthController {
       console.log(err);
       return res.status(500).json({
         message: "Error Storing Token.",
-        description: "An error occurred while storing your refresh token. Please try again.",
+        description:
+          "An error occurred while storing your refresh token. Please try again.",
       });
     }
 
@@ -108,7 +115,8 @@ class AuthController {
       user: userDto,
       auth: true,
       message: "Authentication Successful!",
-      description: "You have successfully verified your OTP and are now logged in.",
+      description:
+        "You have successfully verified your OTP and are now logged in.",
     });
   }
 
@@ -122,15 +130,14 @@ class AuthController {
         message: "Session Expired.",
         description: "Your session has expired. Please log in again.",
       });
-    }     
+    }
 
     console.log(userData);
-    
 
     try {
       const token = await tokenService.findRefreshToken(
         userData._id,
-        refreshTokenFromCookie
+        refreshTokenFromCookie,
       );
       if (!token) {
         return res.status(401).json({
@@ -141,7 +148,8 @@ class AuthController {
     } catch (err) {
       return res.status(500).json({
         message: "Internal Server Error.",
-        description: "An error occurred while validating your token. Please try again.",
+        description:
+          "An error occurred while validating your token. Please try again.",
       });
     }
 
@@ -161,12 +169,13 @@ class AuthController {
       await tokenService.updateRefreshToken(
         userData._id,
         refreshTokenFromCookie,
-        refreshToken
+        refreshToken,
       );
     } catch (err) {
       return res.status(500).json({
         message: "Error Updating Token.",
-        description: "An error occurred while updating your refresh token. Please try again.",
+        description:
+          "An error occurred while updating your refresh token. Please try again.",
       });
     }
 

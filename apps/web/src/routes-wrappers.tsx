@@ -1,5 +1,5 @@
-import { Navigate } from "react-router-dom";
 import { ReactNode } from "react";
+import { Navigate } from "react-router-dom";
 import useRedux from "@/hooks/use-redux";
 
 type ChildProp = { children: ReactNode };

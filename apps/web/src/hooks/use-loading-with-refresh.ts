@@ -15,12 +15,11 @@ export function useLoadingWithRefresh() {
     (async () => {
       try {
         setIsLoading(true);
-        await new Promise((resolve) => setTimeout(resolve, 500000));
         const { data } = await axios.get(
           `${import.meta.env.VITE_API_URL}/api/refresh`,
           {
             withCredentials: true,
-          }
+          },
         );
         console.log(data);
 
@@ -34,7 +33,7 @@ export function useLoadingWithRefresh() {
                 message: "Oops! No Internet!",
                 description:
                   "It seems you’re offline. Please check your connection and try again. I’m here when you’re back!",
-              })
+              }),
             );
           } else if (response.status === 500) {
             setError(
@@ -43,7 +42,7 @@ export function useLoadingWithRefresh() {
                 message: "Oops! Something went wrong",
                 description:
                   "It looks like something didn't go as planned. Please try again in a moment. We are fixing this issue very soon.",
-              })
+              }),
             );
           }
         }

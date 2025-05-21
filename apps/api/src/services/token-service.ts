@@ -18,7 +18,7 @@ class TokenService {
     await RefreshModel.findOneAndUpdate(
       { userId },
       { $push: { token: refreshToken } },
-      { upsert: true, new: true }
+      { upsert: true, new: true },
     );
   }
 
@@ -42,14 +42,14 @@ class TokenService {
     await RefreshModel.findOneAndUpdate(
       { userId },
       { $push: { token: refreshToken } },
-      { upsert: true, new: true }
+      { upsert: true, new: true },
     );
   }
 
   async removeToken(userId, refreshToken) {
     return await RefreshModel.findOneAndUpdate(
       { userId, token: { $in: [refreshToken] } },
-      { $pull: { token: refreshToken } }
+      { $pull: { token: refreshToken } },
     );
   }
 }

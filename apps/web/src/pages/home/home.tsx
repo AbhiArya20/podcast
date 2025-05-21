@@ -7,18 +7,18 @@ import Navbar from "@/components/navbar/navbar";
 import Platform from "@/components/home/platform-section/platform-section";
 
 const Home = () => {
-	return (
-		<div>
-			<Navbar withLoginButton={true} />
-			<HeroSection />
-			<FeatureSectionContextProvider>
-				<FeatureSection />
-			</FeatureSectionContextProvider>
-			<Platform />
-			<Industries />
-			<CopyrightFooter />
-		</div>
-	);
+  return (
+    <>
+      <Navbar withLoginButton={true} />
+      <HeroSection />
+      <FeatureSectionContextProvider>
+        <FeatureSection />
+      </FeatureSectionContextProvider>
+      <Platform />
+      <Industries />
+      <CopyrightFooter />
+    </>
+  );
 };
 
 export default Home;

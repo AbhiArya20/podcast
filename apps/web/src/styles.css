@@ -4,6 +4,8 @@
   --background: #121212;
   --secondary-background: #1d1d1d;
   --text: #fff;
+  --secondary-text: #c4c5c5;
+  --error: #db4437;
 }
 
 html {

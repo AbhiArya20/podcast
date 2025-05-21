@@ -5,22 +5,22 @@ import StepName from "@/components/activate/step-name/step-name";
 type onNextFunction = () => void;
 
 type Steps = {
-	[key: number]: React.FC<{ onNext: onNextFunction }>;
+  [key: number]: React.FC<{ onNext: onNextFunction }>;
 };
 
 const steps: Steps = {
-	1: StepName,
-	2: StepAvatar,
+  1: StepName,
+  2: StepAvatar,
 };
 
 const Activate = () => {
-	const [step, setStep] = useState(1);
-	const Step = steps[step];
+  const [step, setStep] = useState(1);
+  const Step = steps[step];
 
-	function onNext() {
-		setStep(step + 1);
-	}
-	return <Step onNext={onNext} />;
+  function onNext() {
+    setStep(step + 1);
+  }
+  return <Step onNext={onNext} />;
 };
 
 export default Activate;

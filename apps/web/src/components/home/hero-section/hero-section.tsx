@@ -4,17 +4,17 @@ import HeroCardRight from "@/components/home/hero-section/hero-card-right/hero-c
 import styles from "./hero-section.module.css";
 
 const HeroSection = () => {
-	return (
-		<section className={styles.heroSection}>
-			<HeroBackground />
-			<div className={styles.heroContentWrapper}>
-				<div className={styles.heroCard}>
-					<HeroCardLeft />
-					<HeroCardRight />
-				</div>
-			</div>
-		</section>
-	);
+  return (
+    <section className={styles.heroSection}>
+      <HeroBackground />
+      <div className={styles.heroContentWrapper}>
+        <div className={styles.heroCard}>
+          <HeroCardLeft />
+          <HeroCardRight />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default HeroSection;

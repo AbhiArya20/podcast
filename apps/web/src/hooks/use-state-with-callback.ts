@@ -7,7 +7,7 @@ export const useStateWithCallback = (intialState) => {
     cbRef.current = cb;
 
     setState((prev) =>
-      typeof newState === "function" ? newState(prev) : newState
+      typeof newState === "function" ? newState(prev) : newState,
     );
   }, []);
 

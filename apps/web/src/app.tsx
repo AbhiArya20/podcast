@@ -17,12 +17,15 @@ import {
   SemiProtectedRoute,
 } from "@/routes-wrappers";
 import "@/styles.css";
+import NotFound from "./components/not-found/not-found";
 
 function App() {
   const { isLoading, error } = useLoadingWithRefresh();
 
   if (isLoading)
-    return <PageLoader isLoading={isLoading} message="Loading, please wait..." />;
+    return (
+      <PageLoader isLoading={isLoading} message="Loading, please wait..." />
+    );
 
   if (error)
     return (
@@ -76,16 +79,15 @@ function App() {
         }
       />
       <Route
-        path="/:id"
+        path="/meetings/:id"
         element={
           <ProtectedRoute>
             <Room />
           </ProtectedRoute>
         }
       />
-      <Route path="/profile" element={<h1>Profile</h1>} />
-      <Route path="/settings" element={<h1>Settings</h1>} />
       <Route path="/privacy-policy/" element={<PrivacyPolicy />} />
+      <Route path="/*" element={<NotFound />} />
     </Routes>
   );
 }

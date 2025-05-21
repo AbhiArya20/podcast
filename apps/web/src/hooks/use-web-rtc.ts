@@ -1,5 +1,5 @@
-import { useEffect,  useRef, useCallback } from "react";
-import { ACTIONS } from "@/actions";
+import { useEffect, useRef, useCallback } from "react";
+import { ACTIONS } from "@/socket/actions";
 import socketInit from "@/socket";
 import freeice from "freeice";
 import { useStateWithCallback } from "@/hooks/use-state-with-callback";
@@ -20,7 +20,7 @@ export const useWebRTC = (roomId, user) => {
         setClients((existingClients) => [...existingClients, newClient], cb);
       }
     },
-    [clients, setClients]
+    [clients, setClients],
   );
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export const useWebRTC = (roomId, user) => {
       async function handleNewPeer({ peerId, createOffer, user: remoteUser }) {
         if (peerId in connections.current) {
           return console.warn(
-            `You are already connected with ${peerId} (${user.name})`
+            `You are already connected with ${peerId} (${user.name})`,
           );
         }
 
@@ -88,7 +88,7 @@ export const useWebRTC = (roomId, user) => {
           addNewClient({ ...remoteUser, muted: true }, () => {
             // get current users mute info
             const currentUser = clientsRef.current.find(
-              (client) => client.id === user.id
+              (client) => client.id === user.id,
             );
             if (currentUser) {
               socket.current.emit(ACTIONS.MUTE_INFO, {
@@ -154,7 +154,7 @@ export const useWebRTC = (roomId, user) => {
         sessionDescription: remoteSessionDescription,
       }) {
         connections.current[peerId].setRemoteDescription(
-          new RTCSessionDescription(remoteSessionDescription)
+          new RTCSessionDescription(remoteSessionDescription),
         );
 
         // If session descrition is offer then create an answer
@@ -175,7 +175,7 @@ export const useWebRTC = (roomId, user) => {
           .map((client) => client.id)
           .indexOf(userId);
         const allConnectedClients = JSON.parse(
-          JSON.stringify(clientsRef.current)
+          JSON.stringify(clientsRef.current),
         );
         if (clientIdx > -1) {
           allConnectedClients[clientIdx].muted = mute;

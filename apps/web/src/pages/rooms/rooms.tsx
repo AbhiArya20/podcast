@@ -34,7 +34,7 @@ const Rooms = () => {
 
   return (
     <>
-    <Navbar showLoginBtn={false} />
+      <Navbar showLoginBtn={false} />
       <div className="container">
         <div className={styles.roomsHeader}>
           <div className={styles.left}>
