@@ -1,0 +1,90 @@
+.loaderScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 4rem);
+  width: 100vw;
+}
+
+.loaderCard {
+  width: 900px;
+  max-width: 90%;
+  height: 100px;
+  min-height: 500px;
+  background: #1d1d1d;
+  padding: 1.875rem;
+  border-radius: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loaderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  width: 100%;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+.logo {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.appTitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.loaderSmall {
+  display: none;
+  margin-bottom: 4rem;
+}
+
+.loaderLarge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.loaderMessage {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .loaderCard {
+    background: #121212;
+  }
+  .loaderSmall {
+    display: inline-block;
+  }
+  .loaderLarge {
+    display: none;
+  }
+
+  .loaderMessage {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .appTitle {
+    font-size: 1rem;
+  }
+}

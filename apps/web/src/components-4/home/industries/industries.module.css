@@ -1,0 +1,192 @@
+.industriesWrapper {
+	display: flex;
+	flex-direction: column;
+	background: #1d1d1d;
+	padding: 4rem 0;
+}
+
+.industriesHeadingWrapper {
+	width: 1300px;
+	max-width: 95%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* padding: 1.875rem; */
+	gap: 5rem;
+	margin-top: 3rem;
+}
+
+.industriesHeadingTitle {
+	font-weight: bold;
+	font-size: 2.5rem;
+	color: white;
+	width: 50%;
+	letter-spacing: .03em;
+}
+
+.industriesHeadingSubTitle {
+	color: white;
+	width: 50%;
+	line-height: 1.4;
+	font-stretch: expanded;
+	letter-spacing: 0.03em;
+	font-size: 1.25rem;
+}
+
+.cardWrapper {
+	margin-top: 5rem;
+	padding: 1rem;
+	color: black;
+	height: 100%;
+	width: 100%;	
+}
+
+.card {
+	border-radius: 1rem;
+	padding: 2rem;
+	background: var(--bg);
+	width: 100%;
+}
+
+.cardHeadingWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.cardImage {
+	height: 5rem;
+	width: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cardImage:nth-child(1) {
+	display: none;
+}
+
+.cardImage:nth-last-child(1) {
+	display: inline;
+}
+
+.cardImage > * {
+	font-size: 4rem;
+}
+
+.cardHeading {
+	font-size: 1.4rem;
+	font-weight: bolder;
+}
+
+.cardSubtitleWrapper {
+	display: flex;
+	align-items: flex-end;
+	color: black;
+	justify-content: space-between;
+	margin-top: 1rem;
+}
+
+.cardParagraphWrapper {
+	font-size: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: f;
+}
+
+.cardParagraph {
+	margin-bottom: 1.5rem;
+	font-weight: 600;
+	max-width: 200px;
+}
+
+.loginBtn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.buttonIcon {
+	font-weight: bold;
+	font-size: 1rem;
+}
+
+.industriesSwiperSlide{
+	width: 100%;
+
+}
+
+.industriesCardWrapper{
+	width: 100%;
+}
+
+@media screen and (max-width: 1260px) {
+	.industriesHeadingTitle {
+		font-size: 2rem;
+	}
+	.industriesHeadingSubTitle {
+		font-size: 1rem;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.cardWrapper {
+		margin-top: 2rem;	
+	}
+
+
+	.industriesHeadingWrapper {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	.industriesHeadingTitle {
+		width: 100%;
+		text-align: center;
+		font-size: 1.5rem;
+	}
+	.industriesHeadingSubTitle {
+		width: 100%;
+		text-align: center;
+		font-size: .8rem;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.cardWrapper {
+		padding: 0.3rem;
+	}
+
+	.card {
+		padding: 1rem;
+	}
+
+	.industriesHeadingWrapper {
+		flex-direction: column;
+		padding: 0;
+	}
+
+	.cardHeadingWrapper {
+		gap: 1rem;
+	}
+
+	.cardImage {
+		height: 2rem;
+		width: 2rem;
+	}
+
+	.cardImage > * {
+		font-size: 2rem;
+	}
+
+	.cardImage:nth-child(1) {
+		display: inline;
+	}
+	.cardImage:nth-last-child(1) {
+		display: none;
+	}
+
+	.loginBtn > * {
+		padding: 0.5rem 0.75rem;
+	}
+}
