@@ -1,6 +1,6 @@
 import "./styles.css";
-import { CounterButton } from "@repo/ui/counter-button";
-import { Link } from "@repo/ui/link";
+import { CounterButton } from "@podcast/ui/counter-button";
+import { Link } from "@podcast/ui/link";
 
 function App() {
   return (
