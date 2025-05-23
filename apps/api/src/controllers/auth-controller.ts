@@ -121,7 +121,7 @@ class AuthController {
   }
 
   async refresh(req, res) {
-    const { refreshToken: refreshTokenFromCookie } = req.cookies;
+    const { refreshToken: refreshTokenFromCookie } = req.cookies;    
     let userData;
     try {
       userData = await tokenService.verifyRefreshToken(refreshTokenFromCookie);

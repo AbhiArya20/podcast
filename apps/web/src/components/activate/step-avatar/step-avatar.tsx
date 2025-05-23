@@ -7,20 +7,26 @@ import FormWrapper from "@/components/form-wrapper/form-wrapper";
 import PageLoader from "@/components/page-loader/page-loader";
 import styles from "./step-avatar.module.css";
 import useAvatarStep from "@/hooks/auth-hooks/use-avatar-step";
+import { useRef } from "react";
+import { TiArrowRight } from "react-icons/ti";
 const StepAvatar = () => {
-  // TODO: Goggle images does not works properly when authenticate using images
   const {
     image,
     captureImage,
     error,
     isLoading,
-    update,
     randomAvatars,
     setImage,
     setAvatarFile,
+    update
   } = useAvatarStep();
 
   if (isLoading) return <PageLoader message="Activation in progress..." />;
+
+  const inputRef = useRef<HTMLInputElement>(null);
+  const handleUploadClick = () => {
+    inputRef.current?.click();
+  };
 
   return (
     <FormWrapper isLoading={isLoading}>
@@ -54,6 +60,7 @@ const StepAvatar = () => {
           type="file"
           className={styles.avatarInput}
           accept="image/png, image/jpeg, image/gif"
+          ref={inputRef}
         />
         <label className={styles.avatarLabel} htmlFor="avatarInput">
           <div className={styles.avatarWrapper}>
@@ -62,15 +69,24 @@ const StepAvatar = () => {
               src={image?.toString()}
               alt="avatar"
             />
-            <Button className={styles.uploadButton}>
+            <Button
+              className={styles.uploadButton}
+              stopPropagation={false}
+              onClick={handleUploadClick}
+            >
               <span>{"Choose New"}</span>
               <FaUpload className={styles.actionIcon} />
             </Button>
           </div>
         </label>
-      </form>
+
+        <Button onClick={update} isLoading={isLoading} loaderColor="white">
+          <span>Next</span>
+          <TiArrowRight className={styles.authIcon} />
+        </Button>
+      </form> 
     </FormWrapper>
   );
 };
-
+ 
 export default StepAvatar;

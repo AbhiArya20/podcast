@@ -1,5 +1,4 @@
-import { FC, ReactNode } from "react";
-
+import { ReactNode } from "react";
 import FormLogo from "@/components/form-logo/form-logo";
 import FullScreenCard from "@/components/fullscreen-cards/fullscreen-card";
 import styles from "./form-wrapper.module.css";
@@ -9,7 +8,7 @@ type FormWrapperProps = {
   children: ReactNode;
 };
 
-const FormWrapper: FC<FormWrapperProps> = ({ children, isLoading }) => {
+export default function FormWrapper({ children, isLoading }: FormWrapperProps) {
   return (
     <FullScreenCard isLoading={isLoading} withLogo={false}>
       <div className={styles.contentWrapper}>
@@ -18,6 +17,4 @@ const FormWrapper: FC<FormWrapperProps> = ({ children, isLoading }) => {
       </div>
     </FullScreenCard>
   );
-};
-
-export default FormWrapper;
+}

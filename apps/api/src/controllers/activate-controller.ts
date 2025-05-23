@@ -1,22 +1,21 @@
 import UserDto from "@/dtos/user-dto";
 import userService from "@/services/user-service";
+import { Request, Response } from "express";
 
 class ActivateController {
-  async activate(req, res) {
-    // Activation logic
+  async activate(req: Request, res: Response) {
     const { name, avatar } = req.body;
     if (!name) {
       return res.status(400).json({ message: "Name is required" });
     }
 
-    console.log(name, req.file);
-
+    console.log(req.file);
+    
     if (!avatar && !req.file?.location) {
       return res.status(400).json({ message: "Avatar is required" });
     }
 
     const userId = req.user._id;
-    // Update user
     try {
       const user = await userService.findUser({ _id: userId });
       if (!user) {

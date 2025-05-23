@@ -1,5 +1,4 @@
 import { useMemo, useState } from "react";
-
 import { activate } from "@/http";
 import { generateRandomAvatar } from "@/utils/random-avatars";
 import { setAuth } from "@/store/auth-slice";
@@ -38,7 +37,6 @@ const useAvatarStep = () => {
     };
   }
 
-  // Submit the form to send OTP
   const submit = async () => {
     const formData = new FormData();
     formData.append("name", name);
@@ -47,12 +45,10 @@ const useAvatarStep = () => {
     return response.data;
   };
 
-  // Handle success after OTP submission
   const onSuccess = (data: { email: string; hash: string }) => {
     dispatch(setAuth(data));
   };
 
-  // Handle form update, error, and loading states with useUpdate
   const { error, isLoading, update } = useUpdate(submit, { onSuccess });
 
   return {

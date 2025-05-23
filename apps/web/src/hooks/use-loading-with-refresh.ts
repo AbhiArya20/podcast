@@ -19,10 +19,8 @@ export function useLoadingWithRefresh() {
           `${import.meta.env.VITE_API_URL}/api/refresh`,
           {
             withCredentials: true,
-          },
+          }
         );
-        console.log(data);
-
         dispatch(setAuth(data));
       } catch (err) {
         if (err instanceof AxiosError) {
@@ -33,7 +31,7 @@ export function useLoadingWithRefresh() {
                 message: "Oops! No Internet!",
                 description:
                   "It seems you’re offline. Please check your connection and try again. I’m here when you’re back!",
-              }),
+              })
             );
           } else if (response.status === 500) {
             setError(
@@ -42,7 +40,7 @@ export function useLoadingWithRefresh() {
                 message: "Oops! Something went wrong",
                 description:
                   "It looks like something didn't go as planned. Please try again in a moment. We are fixing this issue very soon.",
-              }),
+              })
             );
           }
         }
@@ -50,7 +48,6 @@ export function useLoadingWithRefresh() {
         setIsLoading(false);
       }
     })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { isLoading, error };
