@@ -1,5 +1,6 @@
 import PageError from "@/components/page-error/page-error";
 import CustomError from "@/utils/custom-error";
+
 export default function PrivacyPolicy() {
   return (
     <PageError
