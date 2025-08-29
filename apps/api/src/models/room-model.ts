@@ -1,12 +1,12 @@
-import mongoose, { ObjectId } from "mongoose";
+import mongoose, { Types } from "mongoose";
 const Schema = mongoose.Schema;
 
 export interface RoomType {
-  _id: ObjectId;
+  _id: Types.ObjectId;
   topic: string;
   roomType: string;
-  owner: ObjectId;
-  participants: ObjectId[];
+  owner: Types.ObjectId;
+  participants: Types.ObjectId[];
   createdAt: Date;
   updatedAt: Date;
 }

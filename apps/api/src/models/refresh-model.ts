@@ -1,10 +1,10 @@
-import mongoose, { ObjectId } from "mongoose";
+import mongoose, {  Types } from "mongoose";
 const Schema = mongoose.Schema;
 
 export interface RefreshType {
-  _id: ObjectId;
+  _id: Types.ObjectId;
   token: string[];
-  userId: ObjectId;
+  userId: Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
 }

@@ -1,6 +1,8 @@
 import RoomDto from "@/dtos/room.dto";
 import roomService from "@/services/room-service";
 import type { Request, Response } from "express";
+import { Types } from 'mongoose';
+
 
 class RoomsController {
   async create(req: Request, res: Response) {
@@ -14,7 +16,7 @@ class RoomsController {
     const room = await roomService.create({
       topic,
       roomType,
-      owner: req.user._id,
+      owner:  new Types.ObjectId(req.user._id),
     });
 
     return res.json(new RoomDto(room));

@@ -1,4 +1,4 @@
-import { UserType } from "@/models/user-model";
+import userModel, { UserType } from "@/models/user-model";
 
 class UserDto {
   id;

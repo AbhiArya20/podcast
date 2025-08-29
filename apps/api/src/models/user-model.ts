@@ -1,14 +1,14 @@
-import mongoose, { ObjectId } from "mongoose";
+import mongoose, {  Types } from "mongoose";
 const Schema = mongoose.Schema;
 
 export interface UserType {
-  _id: ObjectId;
-  name: string;
+  _id: Types.ObjectId;
+  name?: string | null;
   email: string;
-  avatar: string;
+  avatar?: string | null;
   activated: boolean;
-  googleId: string;
-  facebookId: string;
+  googleId?: string | null;
+  facebookId?: string | null;
   createdAt: Date;
   updatedAt: Date;
 }

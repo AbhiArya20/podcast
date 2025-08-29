@@ -109,7 +109,7 @@ class AuthController {
       httpOnly: true,
     });
 
-    const userDto = new UserDto(user.toObject());
+    const userDto = new UserDto(user);
     res.json({
       user: userDto,
       auth: true,
@@ -131,7 +131,12 @@ class AuthController {
       });
     }
 
-    console.log(userData);
+    if(!userData || typeof userData === "string" || !userData._id){
+      return res.status(401).json({
+        message: "Invalid Token Data.",
+        description: "The token data is invalid. Please log in again.",
+      });
+    }
 
     try {
       const token = await tokenService.findRefreshToken(
@@ -188,7 +193,7 @@ class AuthController {
       httpOnly: true,
     });
 
-    const userDto = new UserDto(user );
+    const userDto = new UserDto(user);
     res.status(200).json({
       user: userDto,
       auth: true,
