@@ -1,11 +1,10 @@
 import RefreshModel from "@/models/refresh-model";
-import { UserType } from "@/models/user-model";
 import jwt from "jsonwebtoken";
 const accessTokenSecret = process.env.JWT_ACCESS_TOKEN_SECRET ?? "access_secret";
 const refreshTokenSecret = process.env.JWT_REFRESH_TOKEN_SECRET?? "refresh_secret";
 
 class TokenService {
-  generateTokens(payload: UserType) {
+  generateTokens(payload: Object) {
     const accessToken = jwt.sign(payload, accessTokenSecret, {
       expiresIn: "1m",
     });

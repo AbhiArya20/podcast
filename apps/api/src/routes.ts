@@ -38,10 +38,10 @@ router.get(
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
       });
-      return res.status(301).redirect(process.env.FRONT_URL + "/meetings");
+      return res.status(301).redirect(process.env.FRONTEND_URL + "/meetings");
     } catch (err) {
       console.log(err);
-      return res.status(301).redirect(process.env.FRONT_URL + "/authenticate");
+      return res.status(301).redirect(process.env.FRONTEND_URL + "/authenticate");
     }
   },
 );
@@ -74,10 +74,10 @@ router.get(
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
       });
-      return res.status(301).redirect(process.env.FRONT_URL + "/meetings");
+      return res.status(301).redirect(process.env.FRONTEND_URL + "/meetings");
     } catch (err) {
       console.log(err);
-      return res.status(301).redirect(process.env.FRONT_URL + "/authenticate");
+      return res.status(301).redirect(process.env.FRONTEND_URL + "/authenticate");
     }
   },
 );

@@ -1,6 +1,6 @@
-import passport, { DoneCallback, Profile } from "passport";
+import  { DoneCallback } from "passport";
 import userService from "@/services/user-service";
-import { Strategy as GoogleStrategy} from "passport-google-oauth20";
+import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 
 class GoogleAuthProvider {
   clientSecret: string | undefined;
@@ -13,11 +13,15 @@ class GoogleAuthProvider {
   }
 
   strategy = () => {
+    if (!this.clientId || !this.clientSecret || !this.callbackURL) {
+      throw new Error("Missing Google credentials in environment variables.");
+    }
     return new GoogleStrategy(
       {
         clientID: this.clientId,
         clientSecret: this.clientSecret,
         callbackURL: this.callbackURL,
+        passReqToCallback: false,
       },
       async (accessToken: string, refreshToken: string, profile , done: DoneCallback) => {
         try {

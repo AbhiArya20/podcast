@@ -1,4 +1,4 @@
-import { UserType } from "@/models/user-model";
+
 import tokenService from "@/services/token-service";
 import { Request, Response, NextFunction } from "express";
 

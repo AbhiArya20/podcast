@@ -1,40 +1,41 @@
-import "./config";
+import "@/config";
 
-import ACTIONS from "./actions";
-import DbConnect from "./database";
-import FacebookAuthProvider from "./middlewares/passport-facebook-auth-middleware";
-import GoogleAuthProvider from "./middlewares/passport-google-auth-middleware";
-import SanitizeHtmlMiddleware from "./middlewares/sanitize-html-middleware";
+import ACTIONS from "@/actions";
+import DbConnect from "@/database";
+import FacebookAuthProvider from "@/middlewares/passport-facebook-auth-middleware";
+import GoogleAuthProvider from "@/middlewares/passport-google-auth-middleware";
+import SanitizeHtmlMiddleware from "@/middlewares/sanitize-html-middleware";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
 import morgan from "morgan";
 import passport from "passport";
-import router from "./routes";
+import router from "@/routes";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import UserDto from "./dtos/user-dto";
+import UserDto from "@/dtos/user-dto";
+import type { Request, Response } from "express";
 
 const app = express();
 const server = createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONT_URL,
+    origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });
 
 const corsOption = {
   credentials: true,
-  origin: process.env.FRONT_URL,
+  origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
 };
 
 app.use(cors(corsOption));
 app.use(cookieParser());
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 DbConnect();
 app.disable("x-powered-by");
 app.use(bodyParser.json({ limit: "10mb" }));
@@ -50,8 +51,11 @@ app.use(passport.initialize());
 
 app.use(router);
 
-app.get("/", (req, res) => {
-  res.send("Hello from express Js");
+app.get("/health", (req: Request, res: Response) => {
+  res.json({
+    status: "ok",
+    message: "Server is running",
+  }); 
 });
 
 // Sockets
@@ -143,4 +147,4 @@ io.on("connection", (socket) => {
   socket.on("disconnecting", leaveRoom);
 });
 
-server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+server.listen(PORT, () => console.log(`Listening on port http://localhost:${PORT}`));

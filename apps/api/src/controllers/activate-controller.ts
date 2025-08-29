@@ -8,8 +8,6 @@ class ActivateController {
     if (!name) {
       return res.status(400).json({ message: "Name is required" });
     }
-
-    console.log(req.file);
     
     if (!avatar && !req.file?.location) {
       return res.status(400).json({ message: "Avatar is required" });
