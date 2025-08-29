@@ -6,7 +6,6 @@ import { Navigation, Pagination } from "swiper/modules";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import { FreeMode } from "swiper/modules";
 import { useRef, useState } from "react";
-import { Autoplay, EffectCreative } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/bundle";
 

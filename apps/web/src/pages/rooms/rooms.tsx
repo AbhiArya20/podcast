@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import AddRoomModal from "@/components/add-room-modal/add-room-modal";
 import Navbar from "@/components/navbar/navbar";
@@ -6,9 +6,18 @@ import RoomCard from "@/components/room-card/room-card";
 import { getAllRooms } from "@/http";
 import styles from "./rooms.module.css";
 
+export type RoomType = {
+  id: string;
+  topic: string;
+  roomType: string;
+  owner: string;
+  participants: string[];
+  createdAt: string;
+};
+
 const Rooms = () => {
   const [showModal, setShowModal] = useState(false);
-  const [rooms, setRooms] = useState([]);
+  const [rooms, setRooms] = useState<RoomType[]>([]);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,7 +43,7 @@ const Rooms = () => {
 
   return (
     <>
-      <Navbar showLoginBtn={false} />
+      <Navbar withLoginButton={false} />
       <div className="container">
         <div className={styles.roomsHeader}>
           <div className={styles.left}>

@@ -26,35 +26,35 @@ const allDetails: AllDetailsType[] = [
     message: "Oops! Something went wrong",
     description:
       "It looks like something didn't go as planned. Please try again in a moment,  We are fixing this issue very soon.",
-    image: "/assets/Calling.avif",
+    image: "/assets/calling.avif",
   },
   {
     title: "Meetings",
     message: "Oops! Something went wrong",
     description:
       "It looks like something didn't go as planned. Please try again in a moment,  We are fixing this issue very soon.",
-    image: "/assets/Events.avif",
+    image: "/assets/events.avif",
   },
   {
     title: "Meetings",
     message: "Oops! Something went wrong",
     description:
       "It looks like something didn't go as planned. Please try again in a moment,  We are fixing this issue very soon.",
-    image: "/assets/Meetings.avif",
+    image: "/assets/meetings.avif",
   },
   {
     title: "Meetings",
     message: "Oops! Something went wrong",
     description:
       "It looks like something didn't go as planned. Please try again in a moment,  We are fixing this issue very soon.",
-    image: "/assets/Calling.avif",
+    image: "/assets/calling.avif",
   },
   {
     title: "Meetings",
     message: "Oops! Something went wrong",
     description:
       "It looks like something didn't go as planned. Please try again in a moment,  We are fixing this issue very soon.",
-    image: "/assets/Calling.avif",
+    image: "/assets/calling.avif",
   },
 ];
 

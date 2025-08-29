@@ -4,11 +4,13 @@ import { useWebRTC } from "@/hooks/use-web-rtc";
 import { useParams, useNavigate } from "react-router-dom";
 import { getRoom } from "@/http";
 import styles from "./room.module.css";
+import { RootState } from "@/store";
+import { RoomType } from "../rooms/rooms";
 
 const Room = () => {
-  const user = useSelector((state) => state.auth.user);
+  const user = useSelector((state: RootState) => state.auth.user);
   const { id: roomId } = useParams();
-  const [room, setRoom] = useState(null);
+  const [room, setRoom] = useState<RoomType|null>(null);
 
   const { clients, provideRef, handleMute } = useWebRTC(roomId, user);
 
@@ -25,7 +27,7 @@ const Room = () => {
   }, [roomId]);
 
   useEffect(() => {
-    handleMute(isMuted, user.id);
+    handleMute(isMuted, user?.id);
   }, [isMuted]);
 
   const handManualLeave = () => {
@@ -33,7 +35,7 @@ const Room = () => {
   };
 
   const handleMuteClick = (clientId) => {
-    if (clientId !== user.id) {
+    if (clientId !== user?.id) {
       return;
     }
     setMuted((prev) => !prev);

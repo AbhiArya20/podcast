@@ -58,8 +58,9 @@
 	cursor: pointer;
 }
 
-.stickyOptions > .activeTab {
+.stickyOptions .activeTab {
 	color: white;
+	transition: all .3s ease-out;
 }
 
 .stickyOptions > p {

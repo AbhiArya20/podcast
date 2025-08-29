@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 
-export const apiURL = import.meta.env.VITE_API_URL;
+export const apiURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5001";
 
 const api = axios.create({
   baseURL: apiURL,
@@ -32,7 +32,7 @@ const onError = async (error) => {
   ) {
     originalRequest.isRetry = true;
     try {
-      await axios.get(`${process.env.REACT_APP_API_URL}/api/refresh`, {
+      await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/refresh`, {
         withCredentials: true,
       });
       return api.request(originalRequest);

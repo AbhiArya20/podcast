@@ -3,8 +3,20 @@ import { ACTIONS } from "@/socket/actions";
 import socketInit from "@/socket";
 import freeice from "freeice";
 import { useStateWithCallback } from "@/hooks/use-state-with-callback";
+import { User } from "@/store/auth-slice";
 
-export const useWebRTC = (roomId, user) => {
+type UserType = {
+  id: string;
+  name: string;
+  avatar: string;
+  activated: boolean;
+  googleId: string;
+  facebookId: string;
+  muted: boolean;
+  createdAt: string;
+};
+
+export const useWebRTC = (roomId?: string, user: User | null) => {
   const [clients, setClients] = useStateWithCallback([]);
   const audioElements = useRef({});
   const connections = useRef({});
@@ -13,11 +25,11 @@ export const useWebRTC = (roomId, user) => {
   const clientsRef = useRef(null);
 
   const addNewClient = useCallback(
-    (newClient, cb) => {
-      const lookingFor = clients.find((client) => client.id === newClient.id);
+    (newClient: UserType, cb: Function) => {
+      const lookingFor = clients.find((client: UserType) => client.id === newClient.id);
 
       if (lookingFor === undefined) {
-        setClients((existingClients) => [...existingClients, newClient], cb);
+        setClients((existingClients: UserType[]) => [...existingClients, newClient], cb);
       }
     },
     [clients, setClients],
