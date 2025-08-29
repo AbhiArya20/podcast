@@ -1,8 +1,9 @@
 import RoomDto from "@/dtos/room.dto";
 import roomService from "@/services/room-service";
+import type { Request, Response } from "express";
 
 class RoomsController {
-  async create(req, res) {
+  async create(req: Request, res: Response) {
     // room
     const { topic, roomType } = req.body;
 
@@ -19,13 +20,13 @@ class RoomsController {
     return res.json(new RoomDto(room));
   }
 
-  async index(req, res) {
+  async index(req: Request, res: Response) {
     const rooms = await roomService.getAllRooms(["open"]);
     const allRooms = rooms.map((room) => new RoomDto(room));
     return res.json(allRooms);
   }
 
-  async show(req, res) {
+  async show(req: Request, res: Response) {
     const room = await roomService.getRoom(req.params.roomId);
     return res.json(room);
   }

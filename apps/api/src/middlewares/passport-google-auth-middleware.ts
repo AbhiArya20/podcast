@@ -1,7 +1,6 @@
-import passport from "passport";
+import passport, { DoneCallback, Profile } from "passport";
 import userService from "@/services/user-service";
-
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+import { Strategy as GoogleStrategy} from "passport-google-oauth20";
 
 class GoogleAuthProvider {
   clientSecret: string | undefined;
@@ -20,7 +19,7 @@ class GoogleAuthProvider {
         clientSecret: this.clientSecret,
         callbackURL: this.callbackURL,
       },
-      async (accessToken, refreshToken, profile, done) => {
+      async (accessToken: string, refreshToken: string, profile , done: DoneCallback) => {
         try {
           const { sub: id, name, email, picture } = profile._json;
 
@@ -35,7 +34,7 @@ class GoogleAuthProvider {
           }
 
           return done(null, user);
-        } catch (e) {
+        } catch {
           return done(null, null);
         }
       },

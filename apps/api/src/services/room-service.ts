@@ -1,6 +1,6 @@
-import RoomModel from "@/models/room-model";
+import RoomModel, { RoomType } from "@/models/room-model";
 class RoomService {
-  async create(payload) {
+  async create(payload: Partial<RoomType> ) {
     const { topic, roomType, owner } = payload;
     const room = await RoomModel.create({
       topic,
@@ -11,7 +11,7 @@ class RoomService {
     return room;
   }
 
-  async getAllRooms(types) {
+  async getAllRooms(types: string[]) {
     const rooms = await RoomModel.find({ roomType: { $in: types } })
       .populate("participants")
       .populate("owner")
@@ -19,7 +19,7 @@ class RoomService {
     return rooms;
   }
 
-  async getRoom(roomId) {
+  async getRoom(roomId: string) {
     const room = await RoomModel.findOne({ _id: roomId });
     return room;
   }

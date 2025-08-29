@@ -5,7 +5,6 @@ import authMiddleware from "./middlewares/auth-middleware";
 import multerObj from "./middlewares/upload-middleware";
 import roomsController from "./controllers/rooms-controller";
 import tokenService from "./services/token-service";
-import userService from "./services/user-service";
 import passport from "passport";
 
 const router = Router();
@@ -26,9 +25,9 @@ router.get(
       }
 
       const { accessToken, refreshToken } = tokenService.generateTokens({
-        _id: user._id,
+      user
       });
-      await tokenService.storeRefreshToken(refreshToken, user.id);
+      await tokenService.storeRefreshToken(refreshToken, user._id);
 
       res.cookie("refreshToken", refreshToken, {
         maxAge: 365 * 24 * 60 * 60 * 1000,
@@ -61,10 +60,10 @@ router.get(
         throw Error();
       }
       const { accessToken, refreshToken } = tokenService.generateTokens({
-        _id: user._id,
+        user
       });
 
-      await tokenService.storeRefreshToken(refreshToken, user.id);
+      await tokenService.storeRefreshToken(refreshToken, user._id);
 
       res.cookie("refreshToken", refreshToken, {
         maxAge: 365 * 24 * 60 * 60 * 1000,
@@ -87,7 +86,7 @@ router.post("/api/send-otp", authController.sendOtp);
 router.post("/api/verify-otp", authController.verifyOtp);
 router.post(
   "/api/activate",
-  // authMiddleware,
+  authMiddleware,
   multerObj.single("avatar"),
   activateController.activate,
 );

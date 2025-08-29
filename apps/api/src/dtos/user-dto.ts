@@ -1,3 +1,5 @@
+import { UserType } from "@/models/user-model";
+
 class UserDto {
   id;
   email;
@@ -6,7 +8,7 @@ class UserDto {
   activated;
   createdAt;
 
-  constructor(user) {
+  constructor(user: UserType) {
     this.id = user._id;
     this.email = user.email;
     this.name = user.name;

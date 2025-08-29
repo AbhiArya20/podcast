@@ -19,14 +19,14 @@ class ActivateController {
     try {
       const user = await userService.findUser({ _id: userId });
       if (!user) {
-        res.status(404).json({ message: "User not found!" });
+        return res.status(404).json({ message: "User not found!" });
       }
       user.activated = true;
       user.name = name;
       user.avatar = req.file?.location || avatar;
       user.save();
       res.json({ user: new UserDto(user), auth: true });
-    } catch (err) {
+    } catch {
       res.status(500).json({ message: "Something went wrong!" });
     }
   }

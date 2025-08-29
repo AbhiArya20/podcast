@@ -1,7 +1,17 @@
-import mongoose from "mongoose";
+import mongoose, { ObjectId } from "mongoose";
 const Schema = mongoose.Schema;
 
-const roomSchema = new Schema(
+export interface RoomType {
+  _id: ObjectId;
+  topic: string;
+  roomType: string;
+  owner: ObjectId;
+  participants: ObjectId[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const roomSchema = new Schema<RoomType>(
   {
     topic: { type: String, required: true },
     roomType: { type: String, required: true },

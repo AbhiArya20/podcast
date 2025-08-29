@@ -1,28 +1,36 @@
 import sanitizeHtml from "sanitize-html";
+import { NextFunction, Request, Response } from "express";
 
-function sanitizeValue(value) {
+
+
+function sanitizeValue<T>(value: T): T {
   if (typeof value === "string") {
     return sanitizeHtml(value, {
-      allowedTags: [], // Remove all HTML tags
-      allowedAttributes: {}, // Remove all attributes
-    });
+      allowedTags: [],
+      allowedAttributes: {},
+    }) as T;
   } else if (Array.isArray(value)) {
-    return value.map(sanitizeValue); // Sanitize each element in the array
+    return value.map(sanitizeValue) as T;
   } else if (typeof value === "object" && value !== null) {
-    sanitizeObject(value); // Recursively sanitize nested objects
+    return sanitizeObject(value as Record<string, unknown>) as T;
   }
-  return value; // Return the value unchanged if it's neither string, array, nor object
+  return value;
 }
 
-function sanitizeObject(obj) {
-  for (let key in obj) {
-    obj[key] = sanitizeValue(obj[key]); // Sanitize the value for each key
+
+
+function sanitizeObject<T extends Record<string, unknown>>(obj: T): T {
+  for (const key in obj) {
+    obj[key] = sanitizeValue(obj[key]);
   }
+  return obj;
 }
 
-export default async function (req, res, next) {
-  if (req.body) {
-    sanitizeValue(req.body);
+
+
+export default function (req: Request, res: Response, next: NextFunction) {
+  if (req.body && typeof req.body === "object") {
+    req.body = sanitizeValue(req.body);
   }
   next();
 }

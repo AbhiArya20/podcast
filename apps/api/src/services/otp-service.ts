@@ -8,13 +8,13 @@ class OtpService {
     return otp;
   }
 
-  async sendByEmail(email, otp, name) {
-    let transporter = nodemailer.createTransport({
+  async sendByEmail(email: string, otp: number) {
+    const transporter = nodemailer.createTransport({
       service: "gmail",
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
-      auth: {
+      auth: { 
         user: process.env.EMAIL,
         pass: process.env.PASS,
       },
@@ -102,8 +102,8 @@ class OtpService {
     });
   }
 
-  verifyOtp(hashedOtp, data) {
-    let computedHash = hashService.hashOtp(data);
+  verifyOtp(hashedOtp: string, data: string) {
+    const computedHash = hashService.hashOtp(data);
     return computedHash === hashedOtp;
   }
 }

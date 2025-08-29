@@ -1,5 +1,17 @@
-import mongoose from "mongoose";
+import mongoose, { ObjectId } from "mongoose";
 const Schema = mongoose.Schema;
+
+export interface UserType {
+  _id: ObjectId;
+  name: string;
+  email: string;
+  avatar: string;
+  activated: boolean;
+  googleId: string;
+  facebookId: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
 const userSchema = new Schema(
   {

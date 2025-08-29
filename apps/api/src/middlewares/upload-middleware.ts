@@ -13,7 +13,7 @@ const multerObj = multer({
     if (allowedImage.includes(mimetype)) {
       cb(null, true);
     } else {
-      cb(new multer.MulterError(imageError));
+      cb(new multer.MulterError("LIMIT_UNEXPECTED_FILE", imageError));
     }
   },
   limits: {
@@ -27,7 +27,7 @@ const multerObj = multer({
       cb(null, { fieldName: file.fieldname });
     },
     key: function (req, file, cb) {
-      const { fieldname, originalname } = file;
+      const {  originalname } = file;
       const extension = fileExtension(originalname);
       cb(
         null,

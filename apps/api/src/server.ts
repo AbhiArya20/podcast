@@ -14,6 +14,7 @@ import passport from "passport";
 import router from "./routes";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import UserDto from "./dtos/user-dto";
 
 const app = express();
 const server = createServer(app);
@@ -54,7 +55,7 @@ app.get("/", (req, res) => {
 });
 
 // Sockets
-const socketUserMap = {};
+const socketUserMap: Record<string, UserDto> = {};
 
 io.on("connection", (socket) => {
   console.log("New connection", socket.id);

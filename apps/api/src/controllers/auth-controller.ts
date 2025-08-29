@@ -3,10 +3,12 @@ import hashService from "@/services/hash-service";
 import otpService from "@/services/otp-service";
 import tokenService from "@/services/token-service";
 import userService from "@/services/user-service";
+import type { Request, Response } from "express";
+import { ObjectId } from "mongoose";
 
 class AuthController {
-  async sendOtp(req, res) {
-    const { email } = req.body;
+  async sendOtp(req: Request, res: Response) {
+    const email: string | undefined = req.body?.email;
     if (!email) {
       return res.status(400).json({
         message: "Email is required.",
@@ -40,7 +42,7 @@ class AuthController {
     }
   }
 
-  async verifyOtp(req, res) {
+  async verifyOtp(req: Request, res: Response) {
     const { otp, hash, email } = req.body;
     if (!otp || !hash || !email) {
       return res.status(400).json({
@@ -84,13 +86,10 @@ class AuthController {
       });
     }
 
-    const { accessToken, refreshToken } = tokenService.generateTokens({
-      _id: user._id,
-      activated: false,
-    });
+    const { accessToken, refreshToken } = tokenService.generateTokens(user.toObject());
 
     try {
-      await tokenService.storeRefreshToken(refreshToken, user._id);
+      await tokenService.storeRefreshToken(refreshToken, user._id.toString());
     } catch (err) {
       console.log(err);
       return res.status(500).json({
@@ -110,7 +109,7 @@ class AuthController {
       httpOnly: true,
     });
 
-    const userDto = new UserDto(user);
+    const userDto = new UserDto(user.toObject());
     res.json({
       user: userDto,
       auth: true,
@@ -120,12 +119,12 @@ class AuthController {
     });
   }
 
-  async refresh(req, res) {
+  async refresh(req: Request, res: Response) {
     const { refreshToken: refreshTokenFromCookie } = req.cookies;    
     let userData;
     try {
       userData = await tokenService.verifyRefreshToken(refreshTokenFromCookie);
-    } catch (err) {
+    } catch {
       return res.status(401).json({
         message: "Session Expired.",
         description: "Your session has expired. Please log in again.",
@@ -145,7 +144,7 @@ class AuthController {
           description: "Your refresh token is invalid. Please log in again.",
         });
       }
-    } catch (err) {
+    } catch {
       return res.status(500).json({
         message: "Internal Server Error.",
         description:
@@ -171,7 +170,7 @@ class AuthController {
         refreshTokenFromCookie,
         refreshToken,
       );
-    } catch (err) {
+    } catch {
       return res.status(500).json({
         message: "Error Updating Token.",
         description:
@@ -189,7 +188,7 @@ class AuthController {
       httpOnly: true,
     });
 
-    const userDto = new UserDto(user);
+    const userDto = new UserDto(user );
     res.status(200).json({
       user: userDto,
       auth: true,
@@ -198,12 +197,12 @@ class AuthController {
     });
   }
 
-  async logout(req, res) {
+  async logout(req: Request, res: Response) {
     const { refreshToken } = req.cookies;
     try {
       await tokenService.removeToken(req.id, refreshToken);
-    } catch (err) {
-      console.log(err);
+    } catch {
+      // Error ignored
     }
     res.clearCookie("refreshToken");
     res.clearCookie("accessToken");

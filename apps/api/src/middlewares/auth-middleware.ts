@@ -1,6 +1,8 @@
+import { UserType } from "@/models/user-model";
 import tokenService from "@/services/token-service";
+import { Request, Response, NextFunction } from "express";
 
-export default async function (req, res, next) {
+export default async function authMiddleware (req: Request, res: Response, next: NextFunction) {
   try {
     const { accessToken } = req.cookies;
 
@@ -8,13 +10,13 @@ export default async function (req, res, next) {
       throw new Error();
     }
     const userData = await tokenService.verifyAccessToken(accessToken);
-    if (!userData) {
+    if (!userData || typeof userData === "string") {
       throw new Error();
     }
-    req.user = userData;
+    req.user = userData as typeof req.user;
     req.id = userData._id;
     next();
-  } catch (err) {
+  } catch {
     res.status(401).json({ message: "Invalid token" });
   }
 }

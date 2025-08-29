@@ -1,3 +1,5 @@
+import { RoomType } from "@/models/room-model";
+
 class RoomDto {
   id;
   topic;
@@ -6,7 +8,7 @@ class RoomDto {
   participants;
   createdAt;
 
-  constructor(room) {
+  constructor(room: RoomType) {
     this.id = room._id;
     this.topic = room.topic;
     this.roomType = room.roomType;
