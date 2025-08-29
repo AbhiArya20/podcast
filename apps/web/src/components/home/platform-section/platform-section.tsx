@@ -1,9 +1,7 @@
 "use client";
 
-import React, {
-  forwardRef,
+import {
   useEffect,
-  useImperativeHandle,
   useRef,
   useState,
 } from "react";
@@ -20,7 +18,7 @@ const Platform = () => {
 
   const tabs = ["Meetings", "Calls", "Webinars", "Rooms"];
 
-  const onTabClick = (index) => {
+  const onTabClick = (index: number) => {
     if (cardItemsRef.current.length > index)
       cardItemsRef.current[index].scrollIntoView({
         behavior: "smooth",

@@ -10,6 +10,7 @@ import { FaArrowRight } from "react-icons/fa";
 import PaginationDots from "@/components/pagination-dots/pagination-dots";
 import styles from "./feature-card.module.css";
 import { useNavigate } from "react-router-dom";
+import SwiperType from "swiper";
 
 const allDetails = [
   {
@@ -63,10 +64,10 @@ const allDetails = [
   },
 ];
 
-const FeatureCard = forwardRef(({ activeIndex, setActiveIndex }, ref) => {
-  const swiperRef = useRef(null);
+const FeatureCard = forwardRef(({ activeIndex, setActiveIndex } : { activeIndex: number, setActiveIndex: (index: number) => void }, ref) => {
+  const swiperRef = useRef<SwiperType | null>(null);
 
-  const changeSlider = (index) => {
+  const changeSlider = (index: number) => {
     swiperRef.current?.slideTo(index, 1000);
     setActiveIndex(index);
   };
@@ -75,10 +76,11 @@ const FeatureCard = forwardRef(({ activeIndex, setActiveIndex }, ref) => {
     changeSlider,
   }));
 
-  const progressCircle = useRef(null);
-  const progressContent = useRef(null);
-  const onAutoplayTimeLeft = (s, time, progress) => {
-    progressCircle.current.style.setProperty("--progress", 1 - progress);
+  const progressCircle = useRef<SVGSVGElement | null>(null);
+  const progressContent = useRef<HTMLSpanElement | null>(null);
+  const onAutoplayTimeLeft = (_: SwiperType, time: number, progress: number) => {
+    if(!progressCircle.current || !progressContent.current) return;
+    progressCircle.current.style.setProperty("--progress", (1 - progress).toString());
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
 
@@ -189,6 +191,13 @@ export const SingleFeatureCard = ({
   description,
   image,
   isVertical = false,
+}:  {
+  title?:string,
+  message:string,
+  description:string,
+  image:string,
+  isVertical?:boolean,
+  setActiveIndex?: (index: number) => void,
 }) => {
   const navigate = useNavigate();
   return (

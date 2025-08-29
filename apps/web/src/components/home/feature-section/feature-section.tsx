@@ -163,7 +163,7 @@ const SubTabList = () => {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const changeSlider = (index) => {
+  const changeSlider = (index: number) => {
     swiperRef.current?.changeSlider(index);
   };
 
@@ -207,7 +207,7 @@ const SubTabList = () => {
   );
 };
 
-const SubTab = ({ isActive, onClick, children }) => (
+const SubTab = ({ isActive, onClick, children }: { isActive: boolean, onClick: () => void, children: ReactNode }) => (
   <li
     className={`${styles.oneSubTabs} ${isActive ? styles.oneSubTabsActive : ""}`}
     onClick={onClick}
